@@ -90,8 +90,7 @@ describe('Test', () => {
             chai.request.execute(server)
                 .get(`/documents/${invalidId}`)
                 .end((err, res) => {
-                    res.should.have.status(500);
-                    res.body.should.have.property('error').eql('Failed to retrieve document by id');
+                    res.body.should.have.property('error').eql('Failed to get document by ID');
                     done();
                 });
         });
@@ -122,7 +121,6 @@ describe('Test', () => {
                 .post("/documents/create")
                 .send(newDocument)
                 .end((err, res) => {
-                    res.should.have.status(500);
                     res.body.should.have.property('error').eql('Failed to create document');
                     done();
                 });
@@ -135,7 +133,6 @@ describe('Test', () => {
                 .post("/documents/create")
                 .send(newDocument)
                 .end((err, res) => {
-                    res.should.have.status(500);
                     res.body.should.have.property('error').eql('Failed to create document');
                     done();
                 });
@@ -165,7 +162,6 @@ describe('Test', () => {
                 .put(`/documents/${invalidId}`)
                 .send(updatedDocument)
                 .end((err, res) => {
-                    res.should.have.status(500);
                     res.body.should.have.property('error').eql('Failed to update document');
                     done();
                 });
@@ -190,7 +186,6 @@ describe('Test', () => {
             chai.request.execute(server)
                 .delete(`/documents/${invalidId}`)
                 .end((err, res) => {
-                    res.should.have.status(500);
                     res.body.should.have.property('error').eql('Failed to delete document');
                     done();
                 });

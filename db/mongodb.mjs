@@ -6,8 +6,8 @@ const collectionName = "documents";
 
 const database = {
     getDb: async function getDb() {
-        let dsn = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}
-            @jsramverk.dp61x.mongodb.net/?retryWrites=true&w=majority&appName=jsramverk`;
+        let dsn = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}`
+        + `@jsramverk.dp61x.mongodb.net/?retryWrites=true&w=majority&appName=jsramverk`;
 
         if (process.env.NODE_ENV === 'test') {
             dsn = "mongodb://localhost:27017/test";

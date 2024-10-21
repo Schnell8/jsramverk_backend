@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
     const allDocuments = await docManager.getAllDocuments();
 
     if (allDocuments === null) {
-        return res.status(500).json({
-            error: 'Failed to retrieve all documents',
+        return res.json({
+            error: 'Failed to get all documents',
         });
     }
 
@@ -21,8 +21,8 @@ router.get('/:id', async (req, res) => {
     const document = await docManager.getDocumentById(req.params.id);
 
     if (document === null) {
-        return res.status(500).json({
-            error: 'Failed to retrieve document by id',
+        return res.json({
+            error: 'Failed to get document by ID',
         });
     }
 
@@ -36,7 +36,7 @@ router.post("/create", async (req, res) => {
     const newDocument = await docManager.createDocument(req.body);
 
     if (newDocument === null) {
-        return res.status(500).json({
+        return res.json({
             error: 'Failed to create document',
         });
     }
@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
     const updatedDocument = await docManager.updateDocument(req.params.id, req.body);
 
     if (updatedDocument === null) {
-        return res.status(500).json({
+        return res.json({
             error: 'Failed to update document',
         });
     }
@@ -64,7 +64,7 @@ router.delete('/:id', async (req, res) => {
     const deletedDocument = await docManager.deleteDocument(req.params.id);
 
     if (deletedDocument === null) {
-        return res.status(500).json({
+        return res.json({
             error: 'Failed to delete document',
         });
     }
